@@ -452,6 +452,9 @@ public class signUp extends javax.swing.JFrame {
 /*
     will close signup_page and open login_page
 */
+
+new logIn().setVisible(true);
+this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
