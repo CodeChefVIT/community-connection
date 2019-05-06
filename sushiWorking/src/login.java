@@ -59,7 +59,7 @@ public class login extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pasword_lab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(username_lab, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(username_lab, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(username_tf)
@@ -88,6 +88,11 @@ public class login extends javax.swing.JFrame {
         });
 
         signUp_btn.setText("Sign Up");
+        signUp_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signUp_btnActionPerformed(evt);
+            }
+        });
 
         forgotPassword_btn.setText("Forgot Password");
 
@@ -128,7 +133,6 @@ public class login extends javax.swing.JFrame {
 
     private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
 //Logs the user in and opens userprofile
-
 String username=username_tf.getText();
 String password=new String(password_pf.getPassword());
 
@@ -170,6 +174,12 @@ catch(Exception e)
  JOptionPane.showMessageDialog(this, e.getMessage());
 }
     }//GEN-LAST:event_login_btnActionPerformed
+
+    private void signUp_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUp_btnActionPerformed
+//Opens signup page
+new signup().setVisible(true);
+this.setVisible(false);
+    }//GEN-LAST:event_signUp_btnActionPerformed
 
     /**
      * @param args the command line arguments
