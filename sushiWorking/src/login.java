@@ -38,7 +38,6 @@ public class login extends javax.swing.JFrame {
         login_btn = new javax.swing.JButton();
         signUp_btn = new javax.swing.JButton();
         forgotPassword_btn = new javax.swing.JButton();
-        exit_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,8 +91,6 @@ public class login extends javax.swing.JFrame {
 
         forgotPassword_btn.setText("Forgot Password");
 
-        exit_btn.setText("Exit");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,13 +101,11 @@ public class login extends javax.swing.JFrame {
                     .addComponent(sushi_lab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(login_btn)
+                        .addComponent(login_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(signUp_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(signUp_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(forgotPassword_btn)
-                        .addGap(18, 18, 18)
-                        .addComponent(exit_btn)))
+                        .addComponent(forgotPassword_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -124,8 +119,7 @@ public class login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(login_btn)
                     .addComponent(signUp_btn)
-                    .addComponent(forgotPassword_btn)
-                    .addComponent(exit_btn))
+                    .addComponent(forgotPassword_btn))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -213,7 +207,6 @@ catch(Exception e)
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton exit_btn;
     private javax.swing.JButton forgotPassword_btn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login_btn;
