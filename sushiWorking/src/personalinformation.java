@@ -1,5 +1,3 @@
-import java.sql.*;
-import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,12 +8,12 @@ import javax.swing.JOptionPane;
  *
  * @author DEVJYOT
  */
-public class signup extends javax.swing.JFrame {
+public class personalinformation extends javax.swing.JFrame {
 
     /**
-     * Creates new form sign up
+     * Creates new form personalinformation
      */
-    public signup() {
+    public personalinformation() {
         initComponents();
     }
 
@@ -29,6 +27,7 @@ public class signup extends javax.swing.JFrame {
     private void initComponents() {
 
         gender_grp = new javax.swing.ButtonGroup();
+        jButton1 = new javax.swing.JButton();
         sushi_lab = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -71,11 +70,15 @@ public class signup extends javax.swing.JFrame {
         gender_lab = new javax.swing.JLabel();
         dob_lab = new javax.swing.JLabel();
         other_rb = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        oldPassword_pf = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        cancel_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(493, 800));
+
+        jButton1.setText("Update Details");
 
         sushi_lab.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
         sushi_lab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -90,6 +93,8 @@ public class signup extends javax.swing.JFrame {
         password_lab.setText("Password");
 
         confirmPassword_lab.setText("Confirm Password");
+
+        username_tf.setEditable(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -123,7 +128,7 @@ public class signup extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirmPassword_lab)
                     .addComponent(confirmPassword_pf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -156,7 +161,7 @@ public class signup extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(recoveryQuestion1_lab, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(recoveryQuestion1_cb, 0, 290, Short.MAX_VALUE))
+                        .addComponent(recoveryQuestion1_cb, 0, 1, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(recoveryQuestion3_lab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,23 +251,34 @@ public class signup extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        name_tf.setEditable(false);
+
         month_cb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "01 (Jan)", "02 (Feb)", "03 (Mar)", "04 (Apr)", "05 (May)", "06 (Jun)", "07 (Jul)", "08 (Aug)", "09 (Sep)", "10 (Oct)", "11 (Nov)", "12 (Dec)" }));
+        month_cb.setEnabled(false);
 
         gender_grp.add(female_rb);
         female_rb.setText("Female");
+        female_rb.setEnabled(false);
+
+        email_tf.setEditable(false);
+
+        phone_tf.setEditable(false);
 
         phone_lab.setText("Phone");
 
         email_lab.setText("Email");
 
         year_cb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "1905", "1906", "1907", "1908", "1909", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006" }));
+        year_cb.setEnabled(false);
 
         name_lab.setText("Full Name");
 
         date_cb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Date", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        date_cb.setEnabled(false);
 
         gender_grp.add(male_rb);
         male_rb.setText("Male");
+        male_rb.setEnabled(false);
 
         gender_lab.setText("Gender");
 
@@ -270,6 +286,7 @@ public class signup extends javax.swing.JFrame {
 
         gender_grp.add(other_rb);
         other_rb.setText("Other");
+        other_rb.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -291,7 +308,7 @@ public class signup extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(month_cb, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(year_cb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(year_cb, 0, 92, Short.MAX_VALUE))
                     .addComponent(phone_tf)
                     .addComponent(email_tf)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -332,6 +349,31 @@ public class signup extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel1.setText("Enter old password");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(oldPassword_pf)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(oldPassword_pf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -342,7 +384,8 @@ public class signup extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -353,32 +396,15 @@ public class signup extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jButton1.setText("Sign Up");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Log In");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Clear");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        cancel_btn.setText("Cancel");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -390,11 +416,9 @@ public class signup extends javax.swing.JFrame {
                     .addComponent(sushi_lab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cancel_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -407,133 +431,12 @@ public class signup extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(cancel_btn))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-//Opens Login page
-new login().setVisible(true);
-this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//Create new entry for new user
-try
-{
- long phone=Long.parseLong(phone_tf.getText());
- String email=email_tf.getText();
- String name=name_tf.getText();
- String dob=year_cb.getSelectedItem()+"-"+month_cb.getSelectedIndex()+"-"+date_cb.getSelectedItem();
- char gender='Q';
- if(male_rb.isSelected())
- {
-  gender='M';
- }
- else if(female_rb.isSelected())
- {
-  gender='F';
- }
- else if(other_rb.isSelected())
- {
-  gender='O';
- }
- String instituteName=instituteName_tf.getText();
- String instituteCity=instituteCity_tf.getText();
- String username=username_tf.getText();
- String password=new String(password_pf.getPassword());
- String confirmPassword=new String(confirmPassword_pf.getPassword());
- int recoveryQuestion1=recoveryQuestion1_cb.getSelectedIndex();
- int recoveryQuestion2=recoveryQuestion2_cb.getSelectedIndex();
- int recoveryQuestion3=recoveryQuestion3_cb.getSelectedIndex();
- String recoveryAnswer1=recoveryAnswer1_tf.getText();
- String recoveryAnswer2=recoveryAnswer2_tf.getText();
- String recoveryAnswer3=recoveryAnswer3_tf.getText();
- if(name.equals("") || year_cb.getSelectedIndex()==0 || month_cb.getSelectedIndex()==0 || date_cb.getSelectedIndex()==0 || email.equals("") || gender=='Q' || instituteName.equals("") || instituteCity.equals("") || username.equals("") || password.equals("") || confirmPassword.equals("") || recoveryQuestion1==0 || recoveryQuestion2==0 || recoveryQuestion3==0 || recoveryAnswer1.equals("") || recoveryAnswer2.equals("") || recoveryAnswer3.equals(""))
- {
-  JOptionPane.showMessageDialog(this, "Fill in all the details correctly");
- }
- else
- {
-  if(password.equals(confirmPassword))
-  {
-   if(recoveryQuestion1!=recoveryQuestion2 && recoveryQuestion3!=recoveryQuestion2 && recoveryQuestion1!=recoveryQuestion3)
-   {
-    if(password.length()>8)
-    {
-     try
-     {
-      Class.forName("java.sql.DriverManager");
-      Connection con;
-      con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/sushi","root","amity");
-      Statement stmt1=(Statement)con.createStatement();
-      String query1="insert into userprofile(name,dob,phone,email,gender,institute_name,institute_city,username,password,recovery_q1,recovery_a1,recovery_q2,recovery_a2,recovery_q3,recovery_a3) values('"+name+"','"+dob+"','"+phone+"','"+email+"','"+gender+"','"+instituteName+"','"+instituteCity+"','"+username+"','"+password+"','"+recoveryQuestion1+"','"+recoveryAnswer1+"','"+recoveryQuestion2+"','"+recoveryAnswer2+"','"+recoveryQuestion3+"','"+recoveryAnswer3+"');";
-      stmt1.executeUpdate(query1);
-      Statement stmt2=(Statement)con.createStatement();
-      String query2="create table "+username+" (association varchar(100));";
-      stmt2.executeUpdate(query2);
-      this.setVisible(false);
-      new userdata(username).setVisible(true);
-     }
-     catch(Exception e)
-     {
-         if(e.getMessage().equals("Duplicate entry '"+username+"' for key 'PRIMARY'"))
-         {
-          JOptionPane.showMessageDialog(this, "Choose some other username");
-         }
-         else
-         {
-          JOptionPane.showMessageDialog(this, e.getMessage());
-         }
-     }
-    }
-    else
-    {
-     JOptionPane.showMessageDialog(this, "Password length should be greater than 8");
-    }
-   }
-   else
-   {
-    JOptionPane.showMessageDialog(this, "All the three recovery questions must be different");
-   }
-  }
-  else
-  {
-   JOptionPane.showMessageDialog(this, "Password and confirmed password do not match");
-  }
- }
-}
-catch(Exception e)
-{
- JOptionPane.showMessageDialog(this, "Fill in all the details correctly");
-}
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-//Clears the entire form
-name_tf.setText("");
-date_cb.setSelectedIndex(0);
-month_cb.setSelectedIndex(0);
-year_cb.setSelectedIndex(0);
-phone_tf.setText("");
-email_tf.setText("");
-gender_grp.clearSelection();
-instituteName_tf.setText("");
-instituteCity_tf.setText("");
-username_tf.setText("");
-password_pf.setText("");
-confirmPassword_pf.setText("");
-recoveryQuestion1_cb.setSelectedIndex(0);
-recoveryAnswer1_tf.setText("");
-recoveryQuestion2_cb.setSelectedIndex(0);
-recoveryAnswer2_tf.setText("");
-recoveryQuestion3_cb.setSelectedIndex(0);
-recoveryAnswer3_tf.setText("");
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -552,25 +455,26 @@ recoveryAnswer3_tf.setText("");
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(personalinformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(personalinformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(personalinformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(personalinformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new signup().setVisible(true);
+                new personalinformation().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancel_btn;
     private javax.swing.JLabel confirmPassword_lab;
     private javax.swing.JPasswordField confirmPassword_pf;
     private javax.swing.JComboBox<String> date_cb;
@@ -585,17 +489,18 @@ recoveryAnswer3_tf.setText("");
     private javax.swing.JLabel instituteName_lab;
     private javax.swing.JTextField instituteName_tf;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JRadioButton male_rb;
     private javax.swing.JComboBox<String> month_cb;
     private javax.swing.JLabel name_lab;
     private javax.swing.JTextField name_tf;
+    private javax.swing.JPasswordField oldPassword_pf;
     private javax.swing.JRadioButton other_rb;
     private javax.swing.JLabel password_lab;
     private javax.swing.JPasswordField password_pf;
