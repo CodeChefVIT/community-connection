@@ -157,9 +157,8 @@ try
    String password2=rs.getString("password");
    if(password.equals(password2))
    {
-    //Test code   
-    System.out.println("Successful Connection"); //Status 'working'
     //Main code
+    
    }
    else
    {

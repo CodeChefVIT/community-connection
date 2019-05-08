@@ -374,6 +374,11 @@ public class signup extends javax.swing.JFrame {
         });
 
         jButton3.setText("Clear");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -503,6 +508,28 @@ catch(Exception e)
  JOptionPane.showMessageDialog(this, "Fill in all the details correctly");
 }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+//Clears the entire form
+name_tf.setText("");
+date_cb.setSelectedIndex(0);
+month_cb.setSelectedIndex(0);
+year_cb.setSelectedIndex(0);
+phone_tf.setText("");
+email_tf.setText("");
+gender_grp.clearSelection();
+instituteName_tf.setText("");
+instituteCity_tf.setText("");
+username_tf.setText("");
+password_pf.setText("");
+confirmPassword_pf.setText("");
+recoveryQuestion1_cb.setSelectedIndex(0);
+recoveryAnswer1_tf.setText("");
+recoveryQuestion2_cb.setSelectedIndex(0);
+recoveryAnswer2_tf.setText("");
+recoveryQuestion3_cb.setSelectedIndex(0);
+recoveryAnswer3_tf.setText("");
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
