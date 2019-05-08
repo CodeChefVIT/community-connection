@@ -470,9 +470,12 @@ try
       Class.forName("java.sql.DriverManager");
       Connection con;
       con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/sushi","root","amity");
-      Statement stmt=(Statement)con.createStatement();
-      String query="insert into userprofile(name,dob,phone,email,gender,institute_name,institute_city,username,password,recovery_q1,recovery_a1,recovery_q2,recovery_a2,recovery_q3,recovery_a3) values('"+name+"','"+dob+"','"+phone+"','"+email+"','"+gender+"','"+instituteName+"','"+instituteCity+"','"+username+"','"+password+"','"+recoveryQuestion1+"','"+recoveryAnswer1+"','"+recoveryQuestion2+"','"+recoveryAnswer2+"','"+recoveryQuestion3+"','"+recoveryAnswer3+"');";
-      stmt.executeUpdate(query);
+      Statement stmt1=(Statement)con.createStatement();
+      String query1="insert into userprofile(name,dob,phone,email,gender,institute_name,institute_city,username,password,recovery_q1,recovery_a1,recovery_q2,recovery_a2,recovery_q3,recovery_a3) values('"+name+"','"+dob+"','"+phone+"','"+email+"','"+gender+"','"+instituteName+"','"+instituteCity+"','"+username+"','"+password+"','"+recoveryQuestion1+"','"+recoveryAnswer1+"','"+recoveryQuestion2+"','"+recoveryAnswer2+"','"+recoveryQuestion3+"','"+recoveryAnswer3+"');";
+      stmt1.executeUpdate(query1);
+      Statement stmt2=(Statement)con.createStatement();
+      String query2="create table "+username+" (association varchar(100));";
+      stmt2.executeUpdate(query2);
       this.setVisible(false);
       new userdata(username).setVisible(true);
      }
