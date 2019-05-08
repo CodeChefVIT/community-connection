@@ -157,8 +157,8 @@ try
    String password2=rs.getString("password");
    if(password.equals(password2))
    {
-    //Main code
-    
+    this.setVisible(false);
+    new userdata(username).setVisible(true);
    }
    else
    {

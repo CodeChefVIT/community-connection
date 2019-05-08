@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class signup extends javax.swing.JFrame {
 
     /**
-     * Creates new form signup
+     * Creates new form sign up
      */
     public signup() {
         initComponents();
@@ -473,7 +473,8 @@ try
       Statement stmt=(Statement)con.createStatement();
       String query="insert into userprofile(name,dob,phone,email,gender,institute_name,institute_city,username,password,recovery_q1,recovery_a1,recovery_q2,recovery_a2,recovery_q3,recovery_a3) values('"+name+"','"+dob+"','"+phone+"','"+email+"','"+gender+"','"+instituteName+"','"+instituteCity+"','"+username+"','"+password+"','"+recoveryQuestion1+"','"+recoveryAnswer1+"','"+recoveryQuestion2+"','"+recoveryAnswer2+"','"+recoveryQuestion3+"','"+recoveryAnswer3+"');";
       stmt.executeUpdate(query);
-      //Main Code
+      this.setVisible(false);
+      new userdata(username).setVisible(true);
      }
      catch(Exception e)
      {
