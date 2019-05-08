@@ -1,0 +1,2 @@
+AIM OF THE PROJECT:
+Often it is difficult for students studying across the nation to know about various events happening in Universities and Colleges all over India.This app will provide as aplatform where the chapters and communities can post about the events happening in their college well before advance. People can follow the pages of these chapters and communities and stay updated about all the events.
