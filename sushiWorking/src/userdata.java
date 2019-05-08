@@ -1,5 +1,6 @@
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -22,6 +23,7 @@ public class userdata extends javax.swing.JFrame {
     {
      initComponents();
      usernameGlobal=username;
+     events_btn.doClick();
     }
 
     /**
@@ -34,9 +36,11 @@ public class userdata extends javax.swing.JFrame {
     private void initComponents() {
 
         sushi_lab = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        events_btn = new javax.swing.JButton();
+        communities_tab = new javax.swing.JButton();
+        personalInformation_btn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        data_tab = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,11 +48,46 @@ public class userdata extends javax.swing.JFrame {
         sushi_lab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sushi_lab.setText("Sushi");
 
-        jButton1.setText("View my recent activity in events");
+        events_btn.setText("View my recent activity in events");
+        events_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                events_btnActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Communities");
+        communities_tab.setText("Communities I follow");
+        communities_tab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                communities_tabActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Personal Information");
+        personalInformation_btn.setText("Personal Information");
+
+        data_tab.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(data_tab);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,13 +96,14 @@ public class userdata extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addComponent(sushi_lab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(events_btn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(communities_tab)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
+                        .addComponent(personalInformation_btn)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -74,14 +114,64 @@ public class userdata extends javax.swing.JFrame {
                 .addComponent(sushi_lab)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(527, Short.MAX_VALUE))
+                    .addComponent(events_btn)
+                    .addComponent(communities_tab)
+                    .addComponent(personalInformation_btn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(370, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void events_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_events_btnActionPerformed
+//Will show all the recent activities of the user in any events
+data_tab.getColumnModel().getColumn(0).setHeaderValue("Events");
+try
+{
+ DefaultTableModel m=(DefaultTableModel)data_tab.getModel();
+ Class.forName("java.sql.DriverManager");
+ Connection con;
+ con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/sushi","root","amity");
+ Statement stmt=(Statement)con.createStatement();
+ String query="selct association from "+usernameGlobal+" where association like '%event%'";
+ ResultSet rs=stmt.executeQuery(query);
+ while(rs.next())
+ {
+  String eventRelation=rs.getString("association");
+  m.addRow(new Object[]{eventRelation});
+ }
+}
+catch(Exception e)
+{
+ JOptionPane.showMessageDialog(this, e.getMessage());
+}
+    }//GEN-LAST:event_events_btnActionPerformed
+
+    private void communities_tabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_communities_tabActionPerformed
+//Will show the user of all the communities he/she follows
+data_tab.getColumnModel().getColumn(0).setHeaderValue("Communities");
+try
+{
+ DefaultTableModel m=(DefaultTableModel)data_tab.getModel();
+ Class.forName("java.sql.DriverManager");
+ Connection con;
+ con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/sushi","root","amity");
+ Statement stmt=(Statement)con.createStatement();
+ String query="selct association from "+usernameGlobal+" where association like '%community%'";
+ ResultSet rs=stmt.executeQuery(query);
+ while(rs.next())
+ {
+  String community=rs.getString("association");
+  m.addRow(new Object[]{community});
+ }
+}
+catch(Exception e)
+{
+ JOptionPane.showMessageDialog(this, e.getMessage());
+}
+    }//GEN-LAST:event_communities_tabActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,9 +209,11 @@ public class userdata extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton communities_tab;
+    private javax.swing.JTable data_tab;
+    private javax.swing.JButton events_btn;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton personalInformation_btn;
     private javax.swing.JLabel sushi_lab;
     // End of variables declaration//GEN-END:variables
 }
