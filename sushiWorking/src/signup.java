@@ -485,6 +485,10 @@ try
          {
           JOptionPane.showMessageDialog(this, "Choose some other username");
          }
+         else if(e.getMessage().equals("Data truncation: Incorrect date value: '"+dob+"' for column 'dob' at row 1"))
+         {
+          JOptionPane.showMessageDialog(this, "Fill in all the details correctly");
+         }
          else
          {
           JOptionPane.showMessageDialog(this, e.getMessage());
